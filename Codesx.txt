@@ -1,0 +1,52 @@
+#include<iostream.h>
+#include<process.h>
+#include<conio.h>
+class Distance
+{
+private:
+int feet;
+float inches;
+public:
+Distance(): feet(0), inches(0.0)
+{}
+void sub_Distance(Distance,Distance);
+
+void getDistance()
+{
+cout<<"Enter the Feet Value";
+cin>>feet;
+cout<<"Enter the Inches Value";
+cin>>inches;
+}
+void showDistance()
+{
+cout<<feet<<"\'- "<<inches<<'\"';
+}
+};
+void Distance::sub_Distance(Distance d1, Distance d2)
+{
+if((d1.feet<d2.feet)||(d1.inches<d2.inches))
+{
+cout<<"Cannot Subract";
+exit(1);
+}
+else
+{
+feet=d1.feet-d2.feet;
+inches=d1.inches-d2.inches;
+}
+}
+int main()
+{
+clrscr();
+Distance d1,d2,d3;
+d1.getDistance();
+d2.getDistance();
+d3.sub_Distance (d1,d2);
+cout<<"\nd1=\t"; d1.showDistance();
+cout<<"\nd2=\t"; d2.showDistance();
+cout<<"\nd3=\t"; d3.showDistance();
+cout<<endl;
+getch();
+return 0;
+}
